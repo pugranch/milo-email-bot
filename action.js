@@ -1,4 +1,4 @@
 async function run() {
-    console.log('running');
+    console.log('ive been updated and am running');
 }
 run();
