@@ -7,11 +7,24 @@ on:
       - main
 
 jobs:
-  action:
+  build:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node-version: [18.x]
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
-      - name: Use email service
-        uses: ./
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 2
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+     
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run the email bot
+      run: npm run email

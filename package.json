@@ -4,6 +4,7 @@
   "description": "",
   "main": "action.js",
   "scripts": {
+    "email": "action.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
